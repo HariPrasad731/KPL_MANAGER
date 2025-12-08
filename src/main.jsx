@@ -9,6 +9,9 @@ import {
 import App from "./App";
 import "./index.css";
 
+// context
+import { LeagueProvider } from "./context/LeagueContext";
+
 // pages
 import Dashboard from "./pages/Dashboard";
 import Teams from "./pages/Teams";
@@ -19,19 +22,20 @@ import Sponsors from "./pages/Sponsors";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* HashRouter works very well with GitHub Pages */}
-    <HashRouter>
-      <Routes>
-        {/* App is the layout that renders <Outlet /> */}
-        <Route path="/" element={<App />}>
-          <Route index element={<Dashboard />} />
-          <Route path="teams" element={<Teams />} />
-          <Route path="teams/:teamId" element={<TeamDetails />} />
-          <Route path="add-team" element={<AddTeam />} />
-          <Route path="matches" element={<Matches />} />
-          <Route path="sponsors" element={<Sponsors />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+    {/* 🔹 Wrap everything with LeagueProvider */}
+    <LeagueProvider>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Dashboard />} />
+            <Route path="teams" element={<Teams />} />
+            <Route path="teams/:teamId" element={<TeamDetails />} />
+            <Route path="add-team" element={<AddTeam />} />
+            <Route path="matches" element={<Matches />} />
+            <Route path="sponsors" element={<Sponsors />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </LeagueProvider>
   </React.StrictMode>
 );
