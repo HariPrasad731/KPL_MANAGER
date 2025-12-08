@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -9,7 +9,7 @@ import {
 import App from "./App";
 import "./index.css";
 
-// your pages
+// pages
 import Dashboard from "./pages/Dashboard";
 import Teams from "./pages/Teams";
 import TeamDetails from "./pages/TeamDetails";
@@ -19,10 +19,10 @@ import Sponsors from "./pages/Sponsors";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* VERY IMPORTANT for GitHub Pages */}
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    {/* HashRouter works very well with GitHub Pages */}
+    <HashRouter>
       <Routes>
-        {/* App is the layout, Outlet will render children */}
+        {/* App is the layout that renders <Outlet /> */}
         <Route path="/" element={<App />}>
           <Route index element={<Dashboard />} />
           <Route path="teams" element={<Teams />} />
@@ -32,6 +32,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="sponsors" element={<Sponsors />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
