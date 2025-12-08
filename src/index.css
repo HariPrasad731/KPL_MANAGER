@@ -1,0 +1,257 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent: #00ff99;
+  --accent2: #007bff;
+  --text-main: #ffffff;
+  --text-dim: #dcdcdc;
+}
+
+/* -------------------------------------------------- */
+/* BACKGROUND */
+/* -------------------------------------------------- */
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background-color: black;
+  color: var(--text-main);
+}
+
+.app-root {
+  min-height: 100vh;
+  background-image: url("https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.app-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+}
+
+.app-main {
+  padding: 28px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* -------------------------------------------------- */
+/* NAVBAR */
+/* -------------------------------------------------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.navbar-left {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  text-shadow: 0px 0px 6px var(--accent);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 14px;
+}
+
+.navbar-links a {
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-main);
+  background: rgba(255,255,255,0.07);
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.navbar-links a:hover {
+  color: black;
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  transform: scale(1.05);
+}
+
+.navbar-links .active {
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  color: black;
+  font-weight: bold;
+}
+
+/* -------------------------------------------------- */
+/* DASHBOARD CARDS */
+/* -------------------------------------------------- */
+
+.stat-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  min-width: 150px;
+  text-align: center;
+  transition: 0.35s;
+  color: var(--text-main);
+}
+
+.stat-card:hover {
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  color: black;
+  transform: scale(1.12);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* -------------------------------------------------- */
+/* TEAMS PAGE */
+/* -------------------------------------------------- */
+
+.search-row {
+  margin: 18px 0;
+  color: white;
+  font-weight: bold;
+}
+
+.search-row input {
+  padding: 8px;
+  width: 240px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.13);
+  color: white;
+  border: 1px solid gray;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+}
+
+.team-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  transition: 0.35s;
+}
+
+.team-card:hover {
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--accent2);
+}
+
+/* -------------------------------------------------- */
+/* MATCHES TABLE */
+/* -------------------------------------------------- */
+
+.matches-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  color: white;
+}
+
+.matches-table th {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.matches-table th, .matches-table td {
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+/* -------------------------------------------------- */
+/* FORMS */
+/* -------------------------------------------------- */
+
+.form {
+  margin-top: 22px;
+  padding: 18px;
+  background: rgba(255,255,255,0.13);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.22);
+  max-width: 460px;
+  color: white;
+}
+
+.form-row {
+  margin-bottom: 12px;
+}
+
+.form-row input {
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid gray;
+  background: rgba(255,255,255,0.14);
+  color: white;
+}
+
+/* -------------------------------------------------- */
+/* BUTTONS */
+/* -------------------------------------------------- */
+
+button {
+  padding: 8px 18px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* -------------------------------------------------- */
+/* CHATBOX */
+/* -------------------------------------------------- */
+
+.chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid var(--accent);
+  padding: 14px;
+  border-radius: 10px;
+  color: white;
+  backdrop-filter: blur(6px);
+}
