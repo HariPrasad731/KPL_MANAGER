@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   HashRouter,
+  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -24,7 +25,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* 🔹 Wrap everything with LeagueProvider */}
     <LeagueProvider>
-      <HashRouter>
+      {/* <HashRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Dashboard />} />
@@ -35,7 +37,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="sponsors" element={<Sponsors />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
+      {/* </HashRouter> */}
     </LeagueProvider>
   </React.StrictMode>
 );
